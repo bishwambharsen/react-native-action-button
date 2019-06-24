@@ -191,7 +191,7 @@ export default class ActionButtonItem extends Component {
           )
       )
     }
-
+    console.log('subTitle: ', subTitle)
     return (
       <TextTouchable
         background={touchableBackground(
