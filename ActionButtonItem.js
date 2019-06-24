@@ -176,7 +176,7 @@ export default class ActionButtonItem extends Component {
     )
 
     let subTitle = null;
-    console.log('ActionButtonItem props: ', this.props)
+    // console.log('ActionButtonItem props: ', this.props)
     if (this.props.subTitle) {
 
       subTitle = (
