@@ -176,9 +176,9 @@ export default class ActionButtonItem extends Component {
     )
 
     let subTitle = null;
+    console.log('ActionButtonItem props: ', this.props)
+    if (this.props.subTitle) {
 
-    if (!this.props.subTitle) {
-      console.log('this.props.subTitle: ', this.props.subTitle)
       subTitle = (
         React.isValidElement(this.props.subTitle) ?
           this.props.subTitle
@@ -192,7 +192,7 @@ export default class ActionButtonItem extends Component {
           )
       )
     }
-    console.log('subTitle: ', subTitle)
+
     return (
       <TextTouchable
         background={touchableBackground(
