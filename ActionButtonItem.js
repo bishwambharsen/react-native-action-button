@@ -201,16 +201,9 @@ export default class ActionButtonItem extends Component {
         activeOpacity={this.props.activeOpacity || DEFAULT_ACTIVE_OPACITY}
         onPress={this.props.onPress}
       >
-        <View style={{ flexDirection: 'column' }}>
-          <View style={textStyles}>
-            {title}
-          </View>
-          {subTitle && (
-            <View style={textStyles}>
-              {subTitle}
-            </View>
-          )}
-
+        <View style={textStyles}>
+          {title}
+          {subTitle}
         </View>
       </TextTouchable>
     );
