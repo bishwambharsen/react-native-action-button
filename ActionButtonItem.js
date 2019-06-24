@@ -204,6 +204,7 @@ export default class ActionButtonItem extends Component {
         <View style={textStyles}>
           {title}
         </View>
+        <View><Text>test subtitle</Text></View>
       </TextTouchable>
     );
   }
