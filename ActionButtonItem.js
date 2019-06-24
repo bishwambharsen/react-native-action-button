@@ -178,6 +178,7 @@ export default class ActionButtonItem extends Component {
     let subTitle = null;
 
     if (!this.props.subTitle) {
+      console.log('this.props.subTitle: ', this.props.subTitle)
       subTitle = (
         React.isValidElement(this.props.subTitle) ?
           this.props.subTitle
