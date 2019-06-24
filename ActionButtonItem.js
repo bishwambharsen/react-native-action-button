@@ -92,15 +92,15 @@ export default class ActionButtonItem extends Component {
     const parentStyle = isAndroid &&
       this.props.fixNativeFeedbackRadius
       ? {
-          height: size,
-          marginBottom: spacing,
-          right: this.props.offsetX,
-          borderRadius: this.props.size / 2
-        }
+        height: size,
+        marginBottom: spacing,
+        right: this.props.offsetX,
+        borderRadius: this.props.size / 2
+      }
       : {
-          paddingHorizontal: this.props.offsetX,
-          height: size + SHADOW_SPACE + spacing
-        };
+        paddingHorizontal: this.props.offsetX,
+        height: size + SHADOW_SPACE + spacing
+      };
     return (
       <Animated.View
         pointerEvents="box-none"
@@ -119,7 +119,7 @@ export default class ActionButtonItem extends Component {
           >
             <View style={[
               buttonStyle,
-              !hideShadow ? {...shadowStyle, ...this.props.shadowStyle} : null
+              !hideShadow ? { ...shadowStyle, ...this.props.shadowStyle } : null
             ]}>
               {this.props.children}
             </View>
@@ -165,15 +165,32 @@ export default class ActionButtonItem extends Component {
     const title = (
       React.isValidElement(this.props.title) ?
         this.props.title
-      : (
-        <Text
-          allowFontScaling={false}
-          style={[styles.text, this.props.textStyle]}
-        >
-          {this.props.title}
-        </Text>
-      )
+        : (
+          <Text
+            allowFontScaling={false}
+            style={[styles.text, this.props.textStyle]}
+          >
+            {this.props.title}
+          </Text>
+        )
     )
+
+    let subTitle = null;
+
+    if (!this.props.subTitle) {
+      subTitle = (
+        React.isValidElement(this.props.subTitle) ?
+          this.props.subTitle
+          : (
+            <Text
+              allowFontScaling={false}
+              style={[styles.text, this.props.subTextStyle]}
+            >
+              {this.props.subTitle}
+            </Text>
+          )
+      )
+    }
 
     return (
       <TextTouchable
@@ -184,8 +201,13 @@ export default class ActionButtonItem extends Component {
         activeOpacity={this.props.activeOpacity || DEFAULT_ACTIVE_OPACITY}
         onPress={this.props.onPress}
       >
-        <View style={textStyles}>
-          {title}
+        <View style={{ flexDirection: 'column' }}>
+          <View style={textStyles}>
+            {title}
+          </View>
+          <View style={textStyles}>
+            {subTitle}
+          </View>
         </View>
       </TextTouchable>
     );
