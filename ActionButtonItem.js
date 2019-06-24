@@ -205,9 +205,12 @@ export default class ActionButtonItem extends Component {
           <View style={textStyles}>
             {title}
           </View>
-          <View style={textStyles}>
-            {subTitle}
-          </View>
+          {subTitle && (
+            <View style={textStyles}>
+              {subTitle}
+            </View>
+          )}
+
         </View>
       </TextTouchable>
     );
