@@ -159,7 +159,7 @@ export default class ActionButtonItem extends Component {
       styles.textContainer,
       positionStyles,
       !hideShadow && shadowStyle,
-      textContainerStyle
+      textContainerStyle, { flexDirection: 'column' }
     ];
 
     const title = (
@@ -202,9 +202,8 @@ export default class ActionButtonItem extends Component {
         onPress={this.props.onPress}
       >
         <View style={textStyles}>
-          {title}
+          {title}{subTitle}
         </View>
-        <View><Text>test subtitle</Text></View>
       </TextTouchable>
     );
   }
